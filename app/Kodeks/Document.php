@@ -1,36 +1,53 @@
-<?php
+<?php namespace App\Kodeks;
+
 /**
- * Created by PhpStorm.
- * User: wg
- * Date: 28.01.18
- * Time: 23:59
+ * Class Document
+ * @package App\Kodeks
  */
-
-namespace App\Kodeks;
-
-
 class Document
 {
     /**
-     * @var \stdClass
+     * Исходные данные.
+     *
+     * @var \stdClass $data
      */
     private $data;
 
+    /**
+     * Document constructor.
+     * @param \stdClass $data
+     */
     public function __construct(\stdClass $data)
     {
         $this->data = $data;
     }
 
+    /**
+     * Получение статуса.
+     *
+     * @return mixed
+     */
     public function getStatus()
     {
         return $this->data->status;
     }
 
+    /**
+     * Получение текста.
+     *
+     * @return mixed
+     */
     public function getText()
     {
         return $this->data->text;
     }
 
+    /**
+     * Преобразование.
+     *
+     * @todo подразумевается, что к документу можно применить стратегию преобразования.
+     * @return array
+     */
     public function transform()
     {
         return [
